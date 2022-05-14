@@ -1,5 +1,99 @@
-body {
-  background-color: whitesmoke;
+/* stylelint-disable property-no-vendor-prefix */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap') ;
+
+* {
   box-sizing: border-box;
 }
 
+body {
+  background-color: #141414;
+  color: white;
+  font-family: Roboto , sans-serif;
+}
+
+.lists {
+  margin-top: -150px;
+}
+
+footer {
+  margin: 50px;
+  text-align: center;
+}
+
+.footer-link {
+  color: #e50914;
+  text-decoration: underline;
+}
+
+@keyframes fa-blink {
+
+  0% { opacity: 1; }
+
+  50% { opacity: 0.5; }
+
+  100% { opacity: 0; }
+}
+
+.fa-blink {
+  -webkit-animation: fa-blink 0.8s linear infinite;
+  -moz-animation: fa-blink 0.8s linear infinite;
+  -ms-animation: fa-blink 0.8s linear infinite;
+  -o-animation: fa-blink 0.8s linear infinite;
+  animation: fa-blink 0.8s linear infinite;
+}
+
+.loading {
+  align-items: center;
+  background-color: black;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  margin: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99;
+}
+
+.load-mobile {
+  display: none;
+}
+
+@media ( max-width : 760px ) {
+
+  .load-mobile {
+    display: block;
+    margin: 200px 25%;
+
+    /* width: 50%; */
+  }
+
+  .load-desktop {
+    display: none;
+  }
+}
+
+select {
+  border: 0;
+  border-bottom: 2px solid currentColor;
+  border-radius: 0;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin-bottom: 1em;
+  margin-top: 5px;
+  padding: 2px;
+  width: 150px;
+  -webkit-border-bottom-right-radius: 15px;
+  -webkit-border-top-right-radius: 15px;
+  -moz-border-radius-topright: 15px;
+  -moz-border-radius-bottomright: 15px;
+}
+
+select:focus, select:active {
+  border-bottom-color: #e50914;
+  outline: 0;
+}
