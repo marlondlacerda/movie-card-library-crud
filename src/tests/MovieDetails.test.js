@@ -24,8 +24,8 @@ describe('4 - Faça uma requisição para buscar o filme que deverá ser renderi
   it('Será validado se `MovieDetails` exibe o texto "Carregando..." enquanto estiver fazendo a requisição', async () => {
     for (const movie of readMovies()) {
       cleanup();
-      const { getByText } = renderPath(`/movies/${movie.id}`);
-      expect(getByText('Carregando...'));
+      const { getAllByAltText } = renderPath(`/movies/${movie.id}`);
+      expect(getAllByAltText('loading'))
     }
   });
 
@@ -40,7 +40,7 @@ describe('4 - Faça uma requisição para buscar o filme que deverá ser renderi
 
       let image = screen.getByAltText('Movie Cover').src.split('/').slice(-2).join('/');
       expect(image).toEqual(readMovies()[movie.id - 1].imagePath);
-      expect(screen.getAllByText(readMovies()[movie.id - 1].genre, { exact: false })).toBeTruthy;
+      expect(screen.getAllByText(`Genre: ${readMovies()[movie.id - 1].genres.join(', ')}`, { exact: true })).toBeTruthy;
       unmount();
     }
   });

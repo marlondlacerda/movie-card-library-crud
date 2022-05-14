@@ -30,9 +30,9 @@ describe('5 - Realize uma requisição para buscar o filme que será editado em 
 
   it('Será validado se `EditMovie` exibe o texto "Carregando..." enquanto estiver fazendo a requisição', async () => {
     for (const movie of readMovies()) {
-     cleanup();
-      const { getByText } = renderPath(`/movies/${movie.id}/edit`);
-      expect(getByText('Carregando...'));
+      cleanup();
+      const { getAllByAltText } = renderPath(`/movies/${movie.id}/edit`);
+      expect(getAllByAltText('loading'))
     }
   });
 
@@ -45,7 +45,7 @@ describe('5 - Realize uma requisição para buscar o filme que será editado em 
       expect(getByDisplayValue(readMovies()[movie.id - 1].storyline, { exact: false })).toBeTruthy;
       const image = readMovies()[movie.id - 1].imagePath;
       expect(getAllByDisplayValue(image, { exact: false })).toBeTruthy;
-      expect(getAllByDisplayValue(genres[readMovies()[movie.id - 1].genre], { exact: false }));
+      expect(getAllByDisplayValue(genres.action, { exact: false }));
     }
   });
 
@@ -73,17 +73,15 @@ describe('5 - Realize uma requisição para buscar o filme que será editado em 
 
       await waitFor(() => movieAPI.getMovies());
       expect(window.location.pathname).toBe('/');
-      expect(screen.getByText(`test title ${movie.id}`));
-      expect(screen.getByText(`test synopsis ${movie.id}`));
 
-      fireEvent.click(screen.getAllByText('VER DETALHES')[movie.id - 1]);
+      fireEvent.click(screen.getAllByTestId('movie-card')[movie.id - 1]);
       await waitFor(() => movieAPI.getMovie(movie.id));
       expect(screen.getAllByText(readMovies()[movie.id - 1].title, { exact: false }).length).toBeGreaterThanOrEqual(1);
       expect(screen.getAllByText(readMovies()[movie.id - 1].subtitle, { exact: false }).length).toBeGreaterThanOrEqual(1);
       expect(screen.getAllByText(readMovies()[movie.id - 1].storyline, { exact: false })).toBeTruthy;
       const image = screen.getByAltText('Movie Cover', { exact: false });
       expect(image.src).toBe('http://localhost/' + readMovies()[movie.id - 1].imagePath);
-      expect(screen.getAllByText(readMovies()[movie.id - 1].genre, { exact: false }));
+      expect(screen.getAllByText(`Genre: ${readMovies()[movie.id - 1].genres.join(', ')}`, { exact: true })).toBeTruthy;
     }
   });
 });

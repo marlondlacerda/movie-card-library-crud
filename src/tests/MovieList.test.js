@@ -21,9 +21,10 @@ const renderPath = (path) => {
 
 describe('2 - Faça uma requisição para buscar e mostrar a lista de filmes quando `MovieList` for montado', () => {
   test('Será validado se a página `MovieList` exibe o texto `Carregando...` enquanto estiver fazendo a requisição', async () => {
-    const { unmount, getByText } = renderPath('/');
-    expect(getByText('Carregando...'));
+    const { unmount, getAllByAltText } = renderPath('/');
+    expect(getAllByAltText('loading'))
     await waitFor(() => movieAPI.getMovies());
+
     unmount();
   });
 

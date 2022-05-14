@@ -1,7 +1,7 @@
 import React from 'react';
 import 'mutationobserver-shim';
 import { Router } from 'react-router-dom';
-import { screen, render, waitFor } from '@testing-library/react';
+import { screen, render, waitFor, getAllByTestId } from '@testing-library/react';
 import { createBrowserHistory } from 'history';
 import App from '../App';
 import { movieAPI, readMovies } from './helpers';
@@ -34,9 +34,9 @@ describe('3 - Insira um link para a página de detalhes de um filme dentro de `M
   });
 
   test('Será validado se cada `MovieCard` contém um link com o texto `VER DETALHES` que redireciona para a página de detalhes do filme', async () => {
-    const { unmount, getAllByText } = renderPath('/');
+    const { unmount, getAllByTestId } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
-    getAllByText('VER DETALHES').forEach((link, index) => {
+    getAllByTestId('movie-card').forEach((link, index) => {
       expect(link.href).toBe(`http://localhost/movies/${(index + 1)}`);
     });
     unmount();

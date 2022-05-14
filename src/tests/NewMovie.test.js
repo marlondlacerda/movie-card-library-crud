@@ -21,12 +21,13 @@ const renderPath = (path) => {
 
 describe('6 - Insira um link na página inicial para `NewMovie` para criar novos cartões', () => {
 
-  it('Será validado se a página inicial contém um link "ADICIONAR CARTÃO". Esse link deve redirecionar para a página de criação de filmes', async () => {
+  it('Será validado se a página inicial contém um link "ADICIONAR NOVO FILME". Esse link deve redirecionar para a página de criação de filmes', async () => {
     const { unmount } = renderPath('/');
     await waitFor(() => movieAPI.getMovies());
-    const addMovie = screen.getByText('ADICIONAR CARTÃO');
+    const addMovie = screen.getByText('ADICIONAR NOVO FILME');
     expect(addMovie);
-    expect(addMovie.href).toBe('http://localhost/movies/new');
+    fireEvent.click(addMovie);
+    expect(window.location.pathname).toBe('/movies/new');
     unmount();
   });
 
