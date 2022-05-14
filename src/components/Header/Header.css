@@ -1,0 +1,38 @@
+@font-face {
+  font-family: BebasNeue;
+  src: url('../../fonts/BebasNeue.otf') format('opentype');
+}
+
+:root {
+
+  --main-header-font: 'BebasNeue';
+}
+
+header {
+  align-items: center;
+  background: transparent;
+  height: 70px;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 30px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all ease 0.5s;
+  z-index: 999;
+}
+
+.black {
+  background-color: #141414;
+}
+
+.movie-card-header {
+  height: 25px;
+}
+
+header h1 {
+  color: #e50914;
+  font-family: var(--main-header-font);
+  font-size: 35px ! important;
+  height: 100%;
+}
