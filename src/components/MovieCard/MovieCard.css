@@ -4,6 +4,11 @@
   width: 350px;
 }
 
+.movie-card a {
+  color: white;
+  text-decoration: none;
+}
+
 .movie-card-body {
   display: flex;
   flex-direction: column;

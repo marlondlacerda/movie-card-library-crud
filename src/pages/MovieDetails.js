@@ -27,7 +27,7 @@ class MovieDetails extends Component {
   }
 
   mountDetail(movie) {
-    const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { id, title, storyline, imagePath, genres, rating, subtitle } = movie;
     const { deleteMovie } = movieAPI;
 
     return (
@@ -36,7 +36,7 @@ class MovieDetails extends Component {
         <p>{ `Title: ${title}` }</p>
         <p>{ `Subtitle: ${subtitle}` }</p>
         <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
+        <p>{ `Genre: ${genres.join(', ')}` }</p>
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/" onClick={ () => deleteMovie(id) }>DELETAR</Link>
