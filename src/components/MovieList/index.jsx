@@ -27,13 +27,11 @@ const handleRightArrow = (scrollX, setScrollX, movies) => {
   setScrollX(x);
 };
 
-const MovieList = (props) => {
+const MovieList = ({ movies }) => {
   const [scrollX, setScrollX] = useState(-INITIALSTATUS);
 
-  const { movies } = props;
-
   useEffect(() => {
-    if (movies.length < FOUR && window.innerWidth > MINLENGTH) {
+    if (movies.length <= FOUR && window.innerWidth > MINLENGTH) {
       setScrollX(0);
     } else if (scrollX === 0) {
       setScrollX(-INITIALSTATUS);
