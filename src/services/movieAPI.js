@@ -1,9 +1,12 @@
 import data from './movieData';
 
-localStorage.setItem('movies', JSON.stringify(data));
-
 const readMovies = () => JSON.parse(localStorage.getItem('movies'));
 const saveMovies = (movies) => localStorage.setItem('movies', JSON.stringify(movies));
+
+// verificar se existe o objeto movies no localstorage, se não, fazer um setItem
+if (!readMovies()) {
+  saveMovies(data);
+}
 
 const TIMEOUT = 2000;
 const SUCCESS_STATUS = 'OK';
