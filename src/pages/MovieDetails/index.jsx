@@ -8,6 +8,7 @@ import { faArrowLeftLong, faHeartCirclePlus,
   faFileCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 import * as movieAPI from '../../services/movieAPI';
+import NotFound from '../NotFound';
 import { Loading } from '../../components';
 
 import './MovieDetails.css';
@@ -16,6 +17,7 @@ const MovieDetails = () => {
   const id = parseInt(window.location.pathname.split('/')[2], 10);
   const [movie, setMovie] = useState({});
   const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
   const [shouldRedirect, setShouldRedirect] = useState(false);
   const [redirectPath, setRedirectPath] = useState('/');
   const { deleteMovie, updateMovie } = movieAPI;
@@ -26,7 +28,10 @@ const MovieDetails = () => {
       (async () => {
         const data = await movieAPI.getMovie(id);
 
-        if (!data) return setShouldRedirect(true);
+        if (!data) {
+          setNotFound(true);
+          return setLoading(false);
+        }
 
         const { imagePath } = data;
 
@@ -63,7 +68,15 @@ const MovieDetails = () => {
   const { title, storyline, imagePath, bookmarked, genres, duration,
     rating, year, subtitle } = movie;
 
-  return (loading ? <Loading /> : (
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (notFound) {
+    return <NotFound />;
+  }
+
+  return (
     <div className="movie-details-container">
       <div
         className="movie-details-head"
@@ -132,7 +145,7 @@ const MovieDetails = () => {
         <hr />
       </div>
     </div>
-  ));
+  );
 };
 
 export default MovieDetails;
