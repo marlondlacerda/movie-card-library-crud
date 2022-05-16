@@ -90,26 +90,26 @@
   width: 100%;
 }
 
-.edit-movie-box .edit-title-box textarea:focus ~ label,
-.edit-movie-box .edit-title-box textarea:valid ~ label {
+.new-movie-box .new-title-box textarea:focus ~ label,
+.new-movie-box .new-title-box textarea:valid ~ label {
   color: #e50914;
   font-size: 12px;
   left: 0;
   top: -28px;
 }
 
-.edit-movie-box .edit-title-box textarea::-webkit-scrollbar {
+.new-movie-box .new-title-box textarea::-webkit-scrollbar {
   overflow: auto;
   overflow-x: hidden;
   width: 12px;
 }
 
-.edit-movie-box .edit-title-box textarea::-webkit-scrollbar-thumb {
+.new-movie-box .new-title-box textarea::-webkit-scrollbar-thumb {
   background: linear-gradient(transparent, #e50914);
   border-radius: 6px;
 }
 
-.edit-movie-box .edit-title-box textarea::-webkit-scrollbar-thumb:hover {
+.new-movie-box .new-title-box textarea::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(transparent, #a23240);
   cursor: pointer;
 }
@@ -132,6 +132,10 @@
   position: relative;
   transition: 0.5s;
   width: 80px;
+}
+
+.new-container-year {
+  width: 90px;
 }
 
 .new-container-input:hover {
@@ -203,6 +207,24 @@
   width: 100%;
 }
 
+.new-year-input {
+  background-color: transparent;
+  border: none;
+  color: #e50914;
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  height: 100%;
+  line-height: 46px;
+  outline: none;
+  padding-left: 17px;
+  position: absolute;
+  resize: none;
+  text-align: center;
+  user-select: none;
+  width: 100%;
+}
+
 .new-container-genre {
   align-items: center;
   display: flex;
@@ -243,15 +265,15 @@
   border-radius: 6px;
 }
 
-.new-select::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(transparent, #A23240);
-  cursor: pointer;
-}
-
-.new-select:focus, .edit-select:active {
+.new-select:focus, .new-select:active {
   border-bottom-color: #e50914;
   min-width: 150px;
   outline: 0;
+}
+
+.new-select::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, #A23240);
+  cursor: pointer;
 }
 
 .input-rating input[ type = 'number' ]::-webkit-inner-spin-button,
