@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Revalia&display=swap') ;
+
+.notfound-container {
+  box-sizing: border-box;
+  left: 50%;
+  max-width: 500px;
+  padding: 40px;
+  position: relative;
+  top: 50%;
+  transform: translate(-50%);
+}
+
+.notfound-box {
+  padding-top: 50px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 2em;
+  padding-bottom: 15px;
+  text-align: center;
+  top: 50%;
+}
+
+.notfound-box img {
+  height: 309.58px;
+  width: 268.15px;
+}
+
+.notfound-404 {
+  color: #e50914;
+  font-family: 'Revalia';
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  height: 79px;
+  left: 653px;
+  line-height: 60px;
+  margin: 15px 0 0;
+  text-align: center;
+  top: 546px;
+}
+
+.notfound-404 span {
+  font-size: 60px;
+}
+
+.notfound-text {
+  color: #e50914;
+  font-family: 'Revalia';
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  height: 45px;
+  line-height: 45px;
+  margin: 0;
+  text-align: center;
+}
+
+@media ( max-width : 760px ) {
+
+  .notfound-text {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+
