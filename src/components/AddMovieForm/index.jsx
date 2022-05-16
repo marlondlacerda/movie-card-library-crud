@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Genre, ImagePath, InputRating, Storyline, Subtitle, Title } from './components';
+import { Duration, Genre, ImagePath, InputRating, Storyline, Subtitle,
+  Title, Year } from './components';
 
 import './AddMovieForm.css';
 
@@ -11,15 +12,30 @@ const initialMovie = {
   storyline: '',
   rating: 0,
   genres: ['Action'],
+  year: 2022,
+  duration: '',
+  bookmarked: false,
+};
+
+const checkDuration = (value) => {
+  const regexDuration = /^([0-9])h\s[0-5][0-9]m$/g;
+  if (regexDuration.test(value)) return true;
+  return false;
 };
 
 const AddMovieForm = ({ onSubmit }) => {
   const [newMovie, setNewMovie] = useState(initialMovie);
-  const { title, subtitle, imagePath, storyline, rating, genres } = newMovie;
+  const { title, subtitle, imagePath, storyline, rating, genres,
+    year, duration } = newMovie;
 
   const handleSubmit = (event) => {
-    onSubmit(newMovie);
+    if (duration && !checkDuration(duration)) {
+      event.preventDefault();
+      return alert('Duração inválida! Exemplo de texto: "1h 15m"');
+    }
+
     event.preventDefault();
+    onSubmit(newMovie);
   };
 
   const handleChange = ({ target }) => {
@@ -42,14 +58,14 @@ const AddMovieForm = ({ onSubmit }) => {
     <form onSubmit={ handleSubmit } className="new-movie-form">
       <Title value={ title } onChange={ handleChange } />
       <Subtitle value={ subtitle } onChange={ handleChange } />
+      <Duration value={ duration } onChange={ handleChange } />
       <ImagePath value={ imagePath } onChange={ handleChange } />
       <Storyline value={ storyline } onChange={ handleChange } />
       <div className="new-container">
+        <Year value={ year } onChange={ handleChange } />
         <InputRating value={ rating } onChange={ handleChange } />
         <Genre value={ genres } onChange={ handleChange } />
       </div>
-      {/*
-      */}
       <div className="button-container">
         <button
           data-testid="send-button"

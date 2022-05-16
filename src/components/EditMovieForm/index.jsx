@@ -1,16 +1,29 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Genre, ImagePath, InputRating, Storyline, Subtitle, Title } from './components';
+import { Duration, Genre, ImagePath, InputRating, Storyline, 
+  Subtitle, Title, Year } from './components';
 
 import './EditMovieForm.css';
 
+const checkDuration = (value) => {
+  const regexDuration = /^([0-9])h\s[0-5][0-9]m$/g;
+  if (regexDuration.test(value)) return true;
+  return false;
+};
+
 const EditMovieForm = ({ movie, onSubmit }) => {
   const [editMovie, setEditMovie] = useState(movie);
-  const { title, subtitle, imagePath, storyline, rating, genres } = editMovie;
+  const { title, subtitle, imagePath, storyline, rating, genres,
+    year, duration } = editMovie;
 
   const handleSubmit = (event) => {
-    onSubmit(editMovie);
+    if (duration && !checkDuration(duration)) {
+      event.preventDefault();
+      return alert('Duração inválida! Exemplo de texto: "1h 15m"');
+    }
+
     event.preventDefault();
+    onSubmit(editMovie);
   };
 
   const handleChange = ({ target }) => {
@@ -33,9 +46,11 @@ const EditMovieForm = ({ movie, onSubmit }) => {
     <form onSubmit={ handleSubmit } className="edit-movie-form">
       <Title value={ title } onChange={ handleChange } />
       <Subtitle value={ subtitle } onChange={ handleChange } />
+      <Duration value={ duration } onChange={ handleChange } />
       <ImagePath value={ imagePath } onChange={ handleChange } />
       <Storyline value={ storyline } onChange={ handleChange } />
       <div className="edit-container">
+        <Year value={ year } onChange={ handleChange } />
         <InputRating value={ rating } onChange={ handleChange } />
         <Genre value={ genres } onChange={ handleChange } />
       </div>
@@ -63,6 +78,9 @@ EditMovieForm.propTypes = {
     storyline: PropTypes.string,
     imagePath: PropTypes.string,
     rating: PropTypes.number,
+    genres: PropTypes.arrayOf(PropTypes.string),
+    year: PropTypes.number,
+    duration: PropTypes.string,
   }).isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
