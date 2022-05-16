@@ -28,6 +28,7 @@
 <div align="center">
   <img src="./img/preview1.png">
   <img src="./img/preview2.png">
+  <img src="./img/preview3.png">
 </div>
 
 ## Habilidades
