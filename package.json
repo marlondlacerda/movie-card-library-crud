@@ -15,6 +15,7 @@
     "react-dom": "16.14.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.2.0",
+    "react-simple-star-rating": "^4.0.5",
     "serialize-javascript": "3.1.0"
   },
   "scripts": {

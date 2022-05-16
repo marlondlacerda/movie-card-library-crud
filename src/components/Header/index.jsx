@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 const TEN = 10;
@@ -22,9 +23,11 @@ const Header = () => {
   });
 
   return (
-    <header className={ `header ${blackHeader ? 'black' : ''}` }>
-      <h1 className="movie-card-header">Movie Cards Library</h1>
-    </header>
+    <Link to="/">
+      <header className={ `header ${blackHeader ? 'black' : ''}` }>
+        <h1 className="movie-card-header">Movie Cards Library</h1>
+      </header>
+    </Link>
   );
 };
 

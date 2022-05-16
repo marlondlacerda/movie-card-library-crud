@@ -74,26 +74,3 @@ footer {
     display: none;
   }
 }
-
-select {
-  border: 0;
-  border-bottom: 2px solid currentColor;
-  border-radius: 0;
-  border-bottom-right-radius: 15px;
-  border-top-right-radius: 15px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  margin-bottom: 1em;
-  margin-top: 5px;
-  padding: 2px;
-  width: 150px;
-  -webkit-border-bottom-right-radius: 15px;
-  -webkit-border-top-right-radius: 15px;
-  -moz-border-radius-topright: 15px;
-  -moz-border-radius-bottomright: 15px;
-}
-
-select:focus, select:active {
-  border-bottom-color: #e50914;
-  outline: 0;
-}

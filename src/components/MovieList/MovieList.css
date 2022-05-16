@@ -6,6 +6,10 @@
   margin: 0 0 0 30px;
 }
 
+.movie-card-image {
+  height: 200px;
+}
+
 .movieRow-listarea {
   overflow-x: hidden;
 }
