@@ -12,7 +12,7 @@ const NotFound = () => {
   }
 
   return (
-    <div data-testid="404-error" className="notfound-container">
+    <div className="notfound-container">
       <div className="notfound-box">
         <img src={ notFound } alt="notfound" />
         <h1 className="notfound-404">
@@ -23,7 +23,6 @@ const NotFound = () => {
         <h2 className="notfound-text">page not found</h2>
         <div className="button-container">
           <button
-            data-testid="send-button"
             type="button"
             onClick={ () => setShouldRedirect(true) }
           >

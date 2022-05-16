@@ -3,7 +3,7 @@ import loading from '../../images/loading1.gif';
 import loadingMobile from '../../images/loadingmobile.gif';
 
 const Loading = () => (
-  <div className="loading" data-testid="loading-image">
+  <div className="loading">
     <img className="load-desktop" src={ loading } alt="loading" />
     <img className="load-mobile" src={ loadingMobile } alt="loading" />
   </div>

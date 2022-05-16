@@ -10,10 +10,10 @@ const MovieCard = ({ movie }) => {
   return (
     <section className="movie-card">
       <div className="movie-card-body">
-        <Link to={ `/movies/${id}` } data-testid="movie-card">
+        <Link to={ `/movies/${id}` }>
           <img src={ imagePath } alt="Movie Cover" className="movie-card-image" />
           <div className="movie-card-header">
-            <h4 data-testid="movie-card-title" className="movie-card-title">{title}</h4>
+            <h4 className="movie-card-title">{title}</h4>
             <Rating rating={ rating } />
           </div>
           <h5 className="movie-card-subtitle">{subtitle}</h5>

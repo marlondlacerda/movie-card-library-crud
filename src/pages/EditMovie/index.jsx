@@ -46,7 +46,7 @@ const EditMovie = () => {
   }
 
   return (
-    <div data-testid="edit-movie">
+    <div>
       <div className="edit-movie-box">
         <h2>{ `Editar ${movie.title}`}</h2>
         <EditMovieForm movie={ movie } onSubmit={ handleSubmit } />

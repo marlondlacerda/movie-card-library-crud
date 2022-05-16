@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Duration, Genre, ImagePath, InputRating, Storyline, 
+import { Duration, Genre, ImagePath, InputRating, Storyline,
   Subtitle, Title, Year } from './components';
 
 import './EditMovieForm.css';
@@ -55,10 +55,7 @@ const EditMovieForm = ({ movie, onSubmit }) => {
         <Genre value={ genres } onChange={ handleChange } />
       </div>
       <div className="button-container">
-        <button
-          data-testid="send-button"
-          type="submit"
-        >
+        <button type="submit">
           <span />
           <span />
           <span />

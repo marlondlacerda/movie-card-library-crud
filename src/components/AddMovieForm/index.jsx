@@ -67,10 +67,7 @@ const AddMovieForm = ({ onSubmit }) => {
         <Genre value={ genres } onChange={ handleChange } />
       </div>
       <div className="button-container">
-        <button
-          data-testid="send-button"
-          type="submit"
-        >
+        <button type="submit">
           <span />
           <span />
           <span />

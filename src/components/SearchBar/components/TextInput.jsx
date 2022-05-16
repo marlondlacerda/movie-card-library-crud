@@ -5,18 +5,13 @@ import PropTypes from 'prop-types';
 
 const TextInputLabel = ({ searchText, onSearchTextChange }) => (
   <div className="search">
-    <label
-      htmlFor="searchText"
-      className="input-label"
-      data-testid="text-input-label"
-    >
+    <label htmlFor="searchText" className="input-label">
       Inclui o texto
       <input
         id="searchText"
         className="search__input"
         type="text"
         name="searchText"
-        data-testid="text-input"
         value={ searchText }
         placeholder="enter your search"
         onChange={ onSearchTextChange }
