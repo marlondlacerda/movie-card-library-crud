@@ -128,7 +128,18 @@
 ## RECURSOS ADICIONAIS DESENVOLVIDOS POR MIM
  [PART 1](https://github.com/marlondlacerda/moviecardlibrary#recursos-adicionais-desenvolvidos-por-mim)
 
-  PART 2
+  [PART 2](https://github.com/marlondlacerda/moviecardlibrary-stateful#recursos-adicionais-desenvolvidos-por-mim)
+
+  PART 3:
+  - Adicionei novos inputs para os formulários, como Ano e duração.
+  - Por padrão, todos os filmes tem a propriedade `bookmarked` como `false`.
+  - Na página detalhada do filme ao clicar no botão de favoritos, o filme é marcado como favorito.
+  - Agora todas as mudanças são salvas no localStorage.
+  - Implementei Docker para que o aplicativo virasse um container.
+  - Todas as posíveis rotas retornam um componente `NotFound` caso não seja encontrado.
+  - Adicionei uma biblioteca `React simple rating` para renderizar os estrelas ao invés de números na página de detalhes do filme.
+  - Deploy usando Heroku
+     - Assim como já peguei um pouco de prática usando vercel, continuei usando o Heroku para praticar mais.
 
 ---
 
